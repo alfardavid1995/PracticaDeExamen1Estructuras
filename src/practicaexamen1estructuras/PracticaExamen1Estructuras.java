@@ -59,42 +59,6 @@ public class PracticaExamen1Estructuras {
                         }  
                     }
                     break;
-                    
-                    
-                    
-                            
-                            //ignorar de aca para abajo
-                    /*
-                    if (colita.ColaVacia()){// si la cola esta vacia no haga nada
-                        JOptionPane.showMessageDialog
-                                (null,"La cola está vacía");
-                    }else{
-                        Nodo noditoRevisado=colita.atiende();
-                        Dispositivo dispositivoExtraidodelNodoRevisado=
-                        noditoRevisado.getDispositivo();
-                       // el codigo evalua valores entre 250 y 500 y losdevuelve a la cola         
-                        if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>=
-                                250 && dispositivoExtraidodelNodoRevisado.getPuntuacion()<=500){
-                            JOptionPane.showMessageDialog(null,
-                                    "Dispositivo enviado de nuevo a la cola");
-                            colita.encola(dispositivoExtraidodelNodoRevisado);
-                            // el dispositivo es menor a 250 y debereia de elim 
-                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
-                                <250){
-                            colita.atiende();
-                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
-                                >500){
-                            JOptionPane.showMessageDialog(null,
-                                    "Dispositivo enviado al cliente");
-                            colita.atiende();
-                        }
-                    }
-
-                    break;
-*/
-                case 3:
-                    seguir = false;
-                    break;
             }
            
         }while(seguir);

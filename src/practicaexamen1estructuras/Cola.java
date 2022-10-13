@@ -38,8 +38,22 @@ public class Cola {
     public Nodo atiende(){
         Nodo aux = frente;
         if(frente!=null){
-            frente=frente.getAtras();
-            aux.setAtras(null);
+            if (aux.getDispositivo().getPuntuacion()>=500){
+                frente=frente.getAtras();
+                aux.setAtras(null);
+                JOptionPane.showMessageDialog(null,"El dispositivo se envió al cliente");
+
+            }else if(aux.getDispositivo().getPuntuacion()<500 && aux.getDispositivo().getPuntuacion()>250) {
+                frente = ultimo;
+                frente=frente.getAtras();
+
+                JOptionPane.showMessageDialog(null,"El dispositivo se envio a la cola");
+            }else{
+                frente=frente.getAtras();
+                aux.setAtras(null);
+                JOptionPane.showMessageDialog(null,"El dispositivo se desecho");
+            }
+
         }else if(frente==null){
             //Si se intenta atender a alguien, pero la cola está vacía,
             //muestra un mensaje
