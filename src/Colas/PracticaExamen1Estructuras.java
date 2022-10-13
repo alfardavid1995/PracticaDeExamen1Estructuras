@@ -1,4 +1,4 @@
-package practicaexamen1estructuras;
+package Colas;
 
 import javax.swing.JOptionPane;
 
@@ -58,6 +58,9 @@ public class PracticaExamen1Estructuras {
                                     "Dispositivo enviado al cliente = "+ notidoEnviado.getDispositivo().toString());
                         }  
                     }
+                    break;
+                case 3:
+                    seguir=false;
                     break;
             }
            

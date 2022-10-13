@@ -1,4 +1,4 @@
-package practicaexamen1estructuras;
+package Colas;
 
 import javax.swing.JOptionPane;
 

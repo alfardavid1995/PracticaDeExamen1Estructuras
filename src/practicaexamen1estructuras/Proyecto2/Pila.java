@@ -26,7 +26,7 @@ public class Pila {
         }else{
             newNode.setSiguiente(this.cima);
             this.cima = newNode;
-            acomodarCubiertos();
+          //  acomodarCubiertos();
         }
         this.largo++;
     }

@@ -1,5 +1,5 @@
 
-package practicaexamen1estructuras;
+package Colas;
 
 public class Nodo {
     public Nodo() {
