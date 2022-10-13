@@ -1,22 +1,22 @@
 package practicaexamen1estructuras.Proyecto2;
 
 public class NodoPila {
-    private Traste trasteNodo;
+    private Archivo archivoNodo;
     private NodoPila siguiente;
     
     //constructor para inicializar
 
     public NodoPila() {
-        this.trasteNodo = null;
+        this.archivoNodo = null;
         this.siguiente = null;
     }
 
-    public Traste getTrasteNodo() {
-        return trasteNodo;
+    public Archivo getArchivoNodo() {
+        return archivoNodo;
     }
 
-    public void setTrasteNodo(Traste trastecitoNodo) {
-        this.trasteNodo = trastecitoNodo;
+    public void setArchivoNodo(Archivo archivoNodo) {
+        this.archivoNodo = archivoNodo;
     }
 
     public NodoPila getSiguiente() {

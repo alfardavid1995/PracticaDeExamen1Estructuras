@@ -12,14 +12,18 @@ public class Pila {
 
     public int tamanio(){ return this.largo;}
 
-    public void push(Traste trastecito){
+    public void push(Archivo archivito){
         NodoPila newNode = new NodoPila();
-        newNode.setTrasteNodo(trastecito);
-
-        if (this.Vacia()){
+        newNode.setArchivoNodo(archivito);
+        // en esta linea verifica que la pila este vacia y el archivo que se inserte no este clasificado para poder crear el 
+        if (this.Vacia() && !archivito.isClasificado()){ 
             this.cima = newNode;
-        }
-        else{
+        //en esta linea verifica si el archivo esta clasificado para meterlo en la siguiente de la cima
+        }else if(!this.Vacia()&& archivito.isClasificado()){
+            NodoPila auxiliar = cima.getSiguiente();//se saca el auxiliar del siguiente a la cima para referenciarlo mas adelante
+            cima.setSiguiente(newNode);//se pone el archivo clasificado como siguiente a la cima
+            cima.getSiguiente().setSiguiente(auxiliar);//ponemos como siguiente a los datos que ya estaban en la pila
+        }else{
             newNode.setSiguiente(this.cima);
             this.cima = newNode;
             acomodarCubiertos();
@@ -37,12 +41,15 @@ public class Pila {
         }
     }
 
+    
+    /*
     public void acomodarCubiertos(){
         cima.getTrasteNodo().setCantidadCubiertos
                 (cima.getTrasteNodo().getCantidadCubiertos()
                         +cima.getSiguiente().getTrasteNodo().getCantidadCubiertos());
         cima.getSiguiente().getTrasteNodo().setCantidadCubiertos(0);
     }
+    */
 
     /*
     public boolean search(int reference) {
@@ -120,7 +127,7 @@ public class Pila {
         NodoPila aux = cima;
         // Recorre la pila hasta el ultimo node.
         while(aux != null){
-            System.out.println("|\t" + aux.getTrasteNodo().toString()+ "\t|");
+            System.out.println("|\t" + aux.getArchivoNodo().toString()+ "\t|");
             System.out.println("-----------------");
             aux = aux.getSiguiente();
         }
