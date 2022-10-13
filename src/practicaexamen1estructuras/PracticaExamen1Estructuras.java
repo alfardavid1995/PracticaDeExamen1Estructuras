@@ -10,7 +10,7 @@ public class PracticaExamen1Estructuras {
         Cola colita = new Cola();
         //se crean los botones del menu principal
         String[] botones = {"Insertar dispositivo", "Mostar cola",
-                "Atender dispositivo", "Buscar Persona", "Salir"};
+                "Atender dispositivo", "Salir"};
 
         do{
             int opcion = JOptionPane.showOptionDialog(null,
@@ -38,30 +38,32 @@ public class PracticaExamen1Estructuras {
                     
                     break;
                 case 2:
-                    Nodo noditoRevisado=colita.atiende();
-                    Dispositivo dispositivoExtraidodelNodoRevisado=
-                            noditoRevisado.getDispositivo();
-                    
-                    if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>250 && 
-                        dispositivoExtraidodelNodoRevisado.getPuntuacion()<500){
-                        JOptionPane.showMessageDialog(null,
-                                "Dispositivo enviado de nuevo a la cola");
-                        colita.encola(dispositivoExtraidodelNodoRevisado);
-                        
-                    }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
-                            <250){
-                         colita.atiende();
-                    }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
-                            >500){
-                        JOptionPane.showMessageDialog(null,
-                                "Dispositivo enviado al cliente");
-                        colita.atiende();
+                    if (colita.ColaVacia()){
+                        JOptionPane.showMessageDialog
+                                (null,"La cola está vacía");
+                    }else{
+                        Nodo noditoRevisado=colita.atiende();
+                        Dispositivo dispositivoExtraidodelNodoRevisado=
+                                noditoRevisado.getDispositivo();
+
+                        if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>250 &&
+                                dispositivoExtraidodelNodoRevisado.getPuntuacion()<500){
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado de nuevo a la cola");
+                            colita.encola(dispositivoExtraidodelNodoRevisado);
+
+                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                                <250){
+                            colita.atiende();
+                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                                >500){
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado al cliente");
+                            colita.atiende();
+                        }
                     }
                     break;
                 case 3:
-                   
-                    break;
-                case 4:
                     seguir = false;
                     break;
             }
