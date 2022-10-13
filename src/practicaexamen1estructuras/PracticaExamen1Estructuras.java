@@ -37,7 +37,7 @@ public class PracticaExamen1Estructuras {
                     }
                     
                     break;
-                case 2:
+                case 2://este case es de atender al primer valor de la cola 
                     if (colita.ColaVacia()){
                         JOptionPane.showMessageDialog
                                 (null,"La cola está vacía");
@@ -45,13 +45,13 @@ public class PracticaExamen1Estructuras {
                         Nodo noditoRevisado=colita.atiende();
                         Dispositivo dispositivoExtraidodelNodoRevisado=
                                 noditoRevisado.getDispositivo();
-
-                        if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>250 &&
-                                dispositivoExtraidodelNodoRevisado.getPuntuacion()<500){
+                       // el codigo evalua valores entre 250 y 500 y losdevuelve a la cola         
+                        if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>=
+                                250 && dispositivoExtraidodelNodoRevisado.getPuntuacion()<=500){
                             JOptionPane.showMessageDialog(null,
                                     "Dispositivo enviado de nuevo a la cola");
                             colita.encola(dispositivoExtraidodelNodoRevisado);
-
+                            // el dispositivo es menor a 250 y debereia de elim 
                         }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
                                 <250){
                             colita.atiende();
