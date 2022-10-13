@@ -1,4 +1,3 @@
-
 package practicaexamen1estructuras;
 
 import javax.swing.JOptionPane;
@@ -11,7 +10,7 @@ public class PracticaExamen1Estructuras {
         Cola colita = new Cola();
         //se crean los botones del menu principal
         String[] botones = {"Insertar dispositivo", "Mostar cola",
-                "Atender dispositivo", "Buscar Persona", "Salir"};
+                "Atender dispositivo", "Salir"};
 
         do{
             int opcion = JOptionPane.showOptionDialog(null,
@@ -23,8 +22,8 @@ public class PracticaExamen1Estructuras {
 
             switch(opcion){
                 case 0:
-                    Dispositivo dispositivo= crearDispositivo();// se crea un dispostivo 
-                    //con todos los parametros
+                    //se crea un dispostivo con todos los parametros
+                    Dispositivo dispositivo= crearDispositivo();
                     colita.encola(dispositivo);//se encola la persona
                     break;
                 case 1:
@@ -38,13 +37,33 @@ public class PracticaExamen1Estructuras {
                     }
                     
                     break;
-                case 2:
-                    colita.atiende();
+                case 2://este case es de atender al primer valor de la cola 
+                    if (colita.ColaVacia()){
+                        JOptionPane.showMessageDialog
+                                (null,"La cola está vacía");
+                    }else{
+                        Nodo noditoRevisado=colita.atiende();
+                        Dispositivo dispositivoExtraidodelNodoRevisado=
+                                noditoRevisado.getDispositivo();
+                       // el codigo evalua valores entre 250 y 500 y losdevuelve a la cola         
+                        if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>=
+                                250 && dispositivoExtraidodelNodoRevisado.getPuntuacion()<=500){
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado de nuevo a la cola");
+                            colita.encola(dispositivoExtraidodelNodoRevisado);
+                            // el dispositivo es menor a 250 y debereia de elim 
+                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                                <250){
+                            colita.atiende();
+                        }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                                >500){
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado al cliente");
+                            colita.atiende();
+                        }
+                    }
                     break;
                 case 3:
-                   
-                    break;
-                case 4:
                     seguir = false;
                     break;
             }
@@ -66,6 +85,4 @@ public class PracticaExamen1Estructuras {
         return dispositivo;
     }         
         
-    }
-    
-
+}
