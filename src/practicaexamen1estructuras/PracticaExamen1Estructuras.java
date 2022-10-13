@@ -1,4 +1,3 @@
-
 package practicaexamen1estructuras;
 
 import javax.swing.JOptionPane;
@@ -23,8 +22,8 @@ public class PracticaExamen1Estructuras {
 
             switch(opcion){
                 case 0:
-                    Dispositivo dispositivo= crearDispositivo();// se crea un dispostivo 
-                    //con todos los parametros
+                    //se crea un dispostivo con todos los parametros
+                    Dispositivo dispositivo= crearDispositivo();
                     colita.encola(dispositivo);//se encola la persona
                     break;
                 case 1:
@@ -39,7 +38,25 @@ public class PracticaExamen1Estructuras {
                     
                     break;
                 case 2:
-                    colita.atiende();
+                    Nodo noditoRevisado=colita.atiende();
+                    Dispositivo dispositivoExtraidodelNodoRevisado=
+                            noditoRevisado.getDispositivo();
+                    
+                    if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>250 && 
+                        dispositivoExtraidodelNodoRevisado.getPuntuacion()<500){
+                        JOptionPane.showMessageDialog(null,
+                                "Dispositivo enviado de nuevo a la cola");
+                        colita.encola(dispositivoExtraidodelNodoRevisado);
+                        
+                    }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                            <250){
+                         colita.atiende();
+                    }else if(dispositivoExtraidodelNodoRevisado.getPuntuacion()
+                            >500){
+                        JOptionPane.showMessageDialog(null,
+                                "Dispositivo enviado al cliente");
+                        colita.atiende();
+                    }
                     break;
                 case 3:
                    
@@ -66,6 +83,4 @@ public class PracticaExamen1Estructuras {
         return dispositivo;
     }         
         
-    }
-    
-
+}
