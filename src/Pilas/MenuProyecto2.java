@@ -1,5 +1,5 @@
 
-package practicaexamen1estructuras.Proyecto2;
+package  Pilas;
 
 import javax.swing.JOptionPane;
 import practicaexamen1estructuras.Cola;

@@ -1,4 +1,4 @@
-package practicaexamen1estructuras.Proyecto2;
+package  Pilas;
 
 public class Pila {
     private NodoPila cima;
