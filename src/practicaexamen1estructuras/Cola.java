@@ -47,6 +47,24 @@ public class Cola {
         }
         return aux;
     }
+
+    public Nodo getFrente() {
+        return frente;
+    }
+
+    public void setFrente(Nodo frente) {
+        this.frente = frente;
+    }
+
+    public Nodo getUltimo() {
+        return ultimo;
+    }
+
+    public void setUltimo(Nodo ultimo) {
+        this.ultimo = ultimo;
+    }
+    
+    
        
     @Override
     public String toString(){

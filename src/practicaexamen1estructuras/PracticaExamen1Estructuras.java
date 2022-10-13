@@ -37,14 +37,41 @@ public class PracticaExamen1Estructuras {
                     }
                     
                     break;
-                case 2://este case es de atender al primer valor de la cola 
-                    if (colita.ColaVacia()){
+                case 2://este case es de atender al primer valor de la cola      
+                    if (colita.ColaVacia()){// si la cola esta vacia no haga nada
+                        JOptionPane.showMessageDialog
+                                (null,"La cola está vacía");
+                    }else{
+                        if(colita.getFrente().getDispositivo().getPuntuacion()>= 250 && colita.getFrente().getDispositivo().getPuntuacion()<= 500 ){
+                            Nodo noditoRevisado=colita.atiende();
+                            Dispositivo dispositivoExtraidodelNodoRevisado= noditoRevisado.getDispositivo();
+                            colita.encola(dispositivoExtraidodelNodoRevisado);
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado de nuevo a la cola" + dispositivoExtraidodelNodoRevisado.toString());   
+                        }else if(colita.getFrente().getDispositivo().getPuntuacion()< 250){
+                            Nodo noditoDesechado=colita.atiende();
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo desechado totalmente = "+ noditoDesechado.getDispositivo().toString());  
+                        }else if(colita.getFrente().getDispositivo().getPuntuacion()> 500){
+                            Nodo notidoEnviado=colita.atiende();
+                            JOptionPane.showMessageDialog(null,
+                                    "Dispositivo enviado al cliente = "+ notidoEnviado.getDispositivo().toString());
+                        }  
+                    }
+                    break;
+                    
+                    
+                    
+                            
+                            //ignorar de aca para abajo
+                    /*
+                    if (colita.ColaVacia()){// si la cola esta vacia no haga nada
                         JOptionPane.showMessageDialog
                                 (null,"La cola está vacía");
                     }else{
                         Nodo noditoRevisado=colita.atiende();
                         Dispositivo dispositivoExtraidodelNodoRevisado=
-                                noditoRevisado.getDispositivo();
+                        noditoRevisado.getDispositivo();
                        // el codigo evalua valores entre 250 y 500 y losdevuelve a la cola         
                         if(dispositivoExtraidodelNodoRevisado.getPuntuacion()>=
                                 250 && dispositivoExtraidodelNodoRevisado.getPuntuacion()<=500){
@@ -62,7 +89,9 @@ public class PracticaExamen1Estructuras {
                             colita.atiende();
                         }
                     }
+
                     break;
+*/
                 case 3:
                     seguir = false;
                     break;
