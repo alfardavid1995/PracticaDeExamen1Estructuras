@@ -41,7 +41,9 @@ public class Archivo {
 
     @Override
     public String toString() {
-        return "Archivo{" + "numeroArchivo=" + numeroArchivo + ", cantidadPaginas=" + cantidadPaginas + ", clasificado=" + clasificado + '}';
+        return "Archivo{" + "numeroArchivo=" + numeroArchivo + ", "
+                + "cantidadPaginas=" + cantidadPaginas + 
+                ", clasificado=" + clasificado + '}';
     }
     
     

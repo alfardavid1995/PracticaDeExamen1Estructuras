@@ -31,7 +31,7 @@ public class Nodo {
 
     @Override
     public String toString() {
-        return "Nodo{" + "dispositivo=" + dispositivo + ", atras=" + atras + '}';
+      return "Nodo{" + "dispositivo=" + dispositivo + ", atras=" + atras + '}';
     }
     
 

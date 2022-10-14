@@ -38,24 +38,41 @@ public class PracticaExamen1Estructuras {
                     
                     break;
                 case 2://este case es de atender al primer valor de la cola      
-                    if (colita.ColaVacia()){// si la cola esta vacia no haga nada
+                  if (colita.ColaVacia()){// si la cola esta vacia no haga nada
                         JOptionPane.showMessageDialog
                                 (null,"La cola está vacía");
-                    }else{
-                        if(colita.getFrente().getDispositivo().getPuntuacion()>= 250 && colita.getFrente().getDispositivo().getPuntuacion()<= 500 ){
+                   }else{
+          //si el dispositivo esta entre 250 y 500 lo envia de nuevo a la cola
+                      if(colita.getFrente().getDispositivo().getPuntuacion()>= 
+                              250 && colita.getFrente().getDispositivo()
+                                             .getPuntuacion()<= 500 ){
+                          
                             Nodo noditoRevisado=colita.atiende();
-                            Dispositivo dispositivoExtraidodelNodoRevisado= noditoRevisado.getDispositivo();
+                            
+                            Dispositivo dispositivoExtraidodelNodoRevisado= 
+                                    noditoRevisado.getDispositivo();
+                            
                             colita.encola(dispositivoExtraidodelNodoRevisado);
+                            
                             JOptionPane.showMessageDialog(null,
-                                    "Dispositivo enviado de nuevo a la cola" + dispositivoExtraidodelNodoRevisado.toString());   
-                        }else if(colita.getFrente().getDispositivo().getPuntuacion()< 250){
+                                   "Dispositivo enviado de nuevo a la cola" + 
+                                dispositivoExtraidodelNodoRevisado.toString());
+                     //si el dispositivo es menor que 250 lo elimina totalmente
+                       }else if(colita.getFrente().getDispositivo()
+                             .getPuntuacion()< 250){
                             Nodo noditoDesechado=colita.atiende();
+                            
                             JOptionPane.showMessageDialog(null,
-                                    "Dispositivo desechado totalmente = "+ noditoDesechado.getDispositivo().toString());  
-                        }else if(colita.getFrente().getDispositivo().getPuntuacion()> 500){
+                                "Dispositivo desechado totalmente = "+ 
+                                   noditoDesechado.getDispositivo().toString());
+                    //si el dispositivo es mayor que 500 lo envia al cliente        
+                      }else if(colita.getFrente().getDispositivo().
+                              getPuntuacion()> 500){
                             Nodo notidoEnviado=colita.atiende();
+                            
                             JOptionPane.showMessageDialog(null,
-                                    "Dispositivo enviado al cliente = "+ notidoEnviado.getDispositivo().toString());
+                                    "Dispositivo enviado al cliente = "+ 
+                                    notidoEnviado.getDispositivo().toString());
                         }  
                     }
                     break;

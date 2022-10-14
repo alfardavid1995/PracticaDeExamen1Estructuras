@@ -15,7 +15,8 @@ public class Main {
 
         //se crean los botones del menu principal
         String[] botones = {"Insertar a la pila", "Mostar pila",
-                "Pop", "Mostrar cantidad archivos\n clasificados / no clasificados", "Salir"};
+                "Pop", "Mostrar cantidad archivos\n clasificados "
+                + "/ no clasificados", "Salir"};
 
             int opcion = JOptionPane.showOptionDialog(null,
                     "Seleccione una de las siguientes opciones:",
@@ -26,8 +27,12 @@ public class Main {
 
             switch(opcion){
                 case 0://{"Insertar a la pila"
-                    int cantpaginasArchivo= Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de paginas del archivo"));
-                    int selectorBoleanDeConfidencialidad= Integer.parseInt(JOptionPane.showInputDialog("Digite si el archivo es clasificado:\n"
+                    int cantpaginasArchivo= 
+                            Integer.parseInt(JOptionPane.showInputDialog
+                                 ("Digite la cantidad de paginas del archivo"));
+                    int selectorBoleanDeConfidencialidad= 
+                            Integer.parseInt(JOptionPane.showInputDialog
+                                  ("Digite si el archivo es clasificado:\n"
                             + "1: Si\n"
                             + "2: No"));
                     boolean archivoConfidencialidad = false;
@@ -43,32 +48,34 @@ public class Main {
                             break;
                     }
                     
-                    Archivo archivito = new Archivo(cantpaginasArchivo, archivoConfidencialidad);
+                    Archivo archivito = new Archivo(cantpaginasArchivo, 
+                            archivoConfidencialidad);
                     
                     pilita.push(archivito);
-                    JOptionPane.showMessageDialog(null, "Informacion del "+archivito.toString());
+                    JOptionPane.showMessageDialog
+                                (null, "Informacion del "+archivito.toString());
 
                     break;
-                case 1://, "Mostar pila"
+             case 1://, "Mostar pila"
                     if (pilita.Vacia()){
-                        JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                      JOptionPane.showMessageDialog(null, "La pila esta vacia");
                     }else{
                        
                         JOptionPane.showMessageDialog(null,  pilita.listar());
                        
                     } 
                     break;
-                case 2://,"Pop", 
+             case 2://,"Pop", 
                     if (pilita.Vacia()){
-                        JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                     JOptionPane.showMessageDialog(null, "La pila esta vacia");
                     }else{
                         pilita.pop();
                     } 
                     break;
-                case 3://"Mostar cantidad archivos clasificados y no clasificados"
+              case 3://"Mostar cantidad archivos clasificados y no clasificados"
                     JOptionPane.showMessageDialog(null, "Archivos\n"
-                            + "Clasificados: "+pilita.getContClasificado()
-                            + "\n No clasificados: "+pilita.getContNoClasificado());
+                        + "Clasificados: "+pilita.getContClasificado()
+                        + "\n No clasificados: "+pilita.getContNoClasificado());
                     
                     break;
                 case 4://, "Salir"};

@@ -46,9 +46,12 @@ public class Pila {
         JOptionPane.showMessageDialog(null,"Archivo ingresado con exito");
 
         }else if(!this.Vacia()&& archivito.isClasificado()){
-            NodoPila auxiliar = cima.getSiguiente();//se saca el auxiliar del siguiente a la cima para referenciarlo mas adelante
-            cima.setSiguiente(newNode);//se pone el archivo clasificado como siguiente a la cima
-            cima.getSiguiente().setSiguiente(auxiliar);//ponemos como siguiente a los datos que ya estaban en la pila
+   //se saca el auxiliar del siguiente a la cima para referenciarlo mas adelante
+            NodoPila auxiliar = cima.getSiguiente();
+    //se pone el archivo clasificado como siguiente a la cima        
+            cima.setSiguiente(newNode);
+    //ponemos como siguiente a los datos que ya estaban en la pila
+            cima.getSiguiente().setSiguiente(auxiliar);
             contClasificado++;
             JOptionPane.showMessageDialog(null,"Archivo ingresado con exito");
         }
@@ -69,7 +72,8 @@ public class Pila {
             }else{
                 contNoClasificado--;
             }
-            JOptionPane.showMessageDialog(null, "POP de archivo: " + cima.getArchivoNodo().toString());
+            JOptionPane.showMessageDialog(null, "POP de archivo: " 
+                    + cima.getArchivoNodo().toString());
             // Asigna como primer node al siguiente de la pila.
             this.cima = this.cima.getSiguiente();
             // Decrementa el contador del tamaño de la pila
