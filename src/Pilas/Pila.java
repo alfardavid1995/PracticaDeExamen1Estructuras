@@ -1,5 +1,7 @@
 package  Pilas;
 
+import javax.swing.JOptionPane;
+
 public class Pila {
     private NodoPila cima;
     private int largo;
@@ -11,29 +13,48 @@ public class Pila {
     public boolean Vacia(){ return cima == null;}
 
     public int tamanio(){ return this.largo;}
+    
+        public void push(Archivo archivito){
+        NodoPila newNode = new NodoPila();
+        newNode.setArchivoNodo(archivito);
 
+        if (this.Vacia()){
+            this.cima = newNode;
+        }
+        else{
+            newNode.setSiguiente(this.cima);
+            this.cima = newNode;
+        }
+        this.largo++;
+    }
+    
+    /*
     public void push(Archivo archivito){
         NodoPila newNode = new NodoPila();
         newNode.setArchivoNodo(archivito);
-        // en esta linea verifica que la pila este vacia y el archivo que se inserte no este clasificado para poder crear el 
-        if (this.Vacia() && !archivito.isClasificado()){ 
-            this.cima = newNode;
-        //en esta linea verifica si el archivo esta clasificado para meterlo en la siguiente de la cima
+        // en esta linea verifica que la pila este vacia y el archivo que se inserte que si este clasificado para poder crear el 
+        if (this.Vacia() && archivito.isClasificado()){ 
+            
+            JOptionPane.showMessageDialog(null,"El archivo clasificado no se puede ingresar en la cima de la pila");
+        //en este caso si la pila esta vacia y no es una archivo clasificado entonces que se ponga al tope de la pila  
+        }else if(this.Vacia() && !archivito.isClasificado()){
+                this.cima = newNode;           
         }else if(!this.Vacia()&& archivito.isClasificado()){
             NodoPila auxiliar = cima.getSiguiente();//se saca el auxiliar del siguiente a la cima para referenciarlo mas adelante
             cima.setSiguiente(newNode);//se pone el archivo clasificado como siguiente a la cima
             cima.getSiguiente().setSiguiente(auxiliar);//ponemos como siguiente a los datos que ya estaban en la pila
-        }else{
+        }else{// en caseo que la pila ya tiene info y archivito no este clasificado va a tomar la cima 
             newNode.setSiguiente(this.cima);
             this.cima = newNode;
-          //  acomodarCubiertos();
         }
         this.largo++;
     }
+    */
 
     //Metodo para eliminar un node
     public void pop(){
         if (!Vacia()) {
+            JOptionPane.showMessageDialog(null, "POP de archivo: " + cima.getArchivoNodo().toString());
             // Asigna como primer node al siguiente de la pila.
             this.cima = this.cima.getSiguiente();
             // Decrementa el contador del tamaño de la pila

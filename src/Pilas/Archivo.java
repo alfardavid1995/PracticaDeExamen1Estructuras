@@ -8,7 +8,7 @@ public class Archivo {
     private int numeroArchivo;
     private static int contadorNumeroArchivo = 1;
 
-    public Archivo(boolean clasificado, int cantidadPaginas) {
+    public Archivo( int cantidadPaginas, boolean clasificado) {
         this.clasificado = clasificado;
         this.cantidadPaginas = cantidadPaginas;
         this.numeroArchivo = contadorNumeroArchivo;
@@ -38,4 +38,11 @@ public class Archivo {
     public void setNumeroArchivo(int numeroArchivo) {
         this.numeroArchivo = numeroArchivo;
     }
+
+    @Override
+    public String toString() {
+        return "Archivo{" + "numeroArchivo=" + numeroArchivo + ", cantidadPaginas=" + cantidadPaginas + ", clasificado=" + clasificado + '}';
+    }
+    
+    
 }

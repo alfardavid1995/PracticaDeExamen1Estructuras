@@ -11,7 +11,7 @@ public class MenuProyecto2 {
         Cola colita = new Cola();
         Pila pilita = new Pila();
         //se crean los botones del menu principal
-        String[] botones = {"Insertar a la pila", "Mostar cola",
+        String[] botones = {"Insertar a la pila", "Mostar pila",
                 "Atender dispositivo", "Buscar Persona", "Salir"};
 
         
