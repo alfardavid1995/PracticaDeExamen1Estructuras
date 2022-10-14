@@ -1,21 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package Pilas;
+
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author css124646
- */
-public class MainPilas {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+public class Main {
+
+    
+      public static void main(String[] args) {
         boolean seguir = true;
         Pila pilita = new Pila();
         do{
@@ -25,9 +17,6 @@ public class MainPilas {
         String[] botones = {"Insertar a la pila", "Mostar pila",
                 "Pop", "Mostrar cantidad archivos\n clasificados / no clasificados", "Salir"};
 
-        
-        
-        
             int opcion = JOptionPane.showOptionDialog(null,
                     "Seleccione una de las siguientes opciones:",
                     "Programa Colas",
@@ -55,14 +44,18 @@ public class MainPilas {
                     }
                     
                     Archivo archivito = new Archivo(cantpaginasArchivo, archivoConfidencialidad);
-                    JOptionPane.showMessageDialog(null, "Se envia el archivo a la pila"+archivito.toString());
+                    
                     pilita.push(archivito);
+                    JOptionPane.showMessageDialog(null, "Informacion del "+archivito.toString());
+
                     break;
                 case 1://, "Mostar pila"
                     if (pilita.Vacia()){
                         JOptionPane.showMessageDialog(null, "La pila esta vacia");
                     }else{
-                        pilita.listar();
+                       
+                        JOptionPane.showMessageDialog(null,  pilita.listar());
+                       
                     } 
                     break;
                 case 2://,"Pop", 
@@ -73,6 +66,10 @@ public class MainPilas {
                     } 
                     break;
                 case 3://"Mostar cantidad archivos clasificados y no clasificados"
+                    JOptionPane.showMessageDialog(null, "Archivos\n"
+                            + "Clasificados: "+pilita.getContClasificado()
+                            + "\n No clasificados: "+pilita.getContNoClasificado());
+                    
                     break;
                 case 4://, "Salir"};
                     seguir = false;
@@ -80,5 +77,6 @@ public class MainPilas {
             }
         }while(seguir);
     }
+    }
     
-}
+

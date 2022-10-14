@@ -5,17 +5,20 @@ public class Ejercicios {
     public double calcCos(int x, int n){
         double result=0;
         for(int i=0; i<n; i++){
-            result+=(Math.pow(-1,n)/factorial(2*n))*Math.pow(x,2*n);
+            result+=(Math.pow(-1,i)/factorial(2*i))*Math.pow(x,2*i);
         }
         return result;
     }
     
-    public double calcCosRecursivo(int n, int x, int i, double result){
-        if(i<n){
-            result=result+(Math.pow(-1,n)/factorial(2*n))*Math.pow(x,2*n);
-            result=calcCosRecursivo(n, x, i+1, result);
+    public double calcCosRecursivo(int n, int x, int i){
+        double result =0;
+        if(i>=n){
+            return 0;
+        }else{
+            result=result+(Math.pow(-1,i)/factorialR(2*i))*Math.pow(x,2*i);
+            return result+calcCosRecursivo(n, x, i+1);
         }
-        return result;
+       
     }
     
     public double factorial(int num){
@@ -39,4 +42,12 @@ public class Ejercicios {
         }
         return result;
     }
+    
+    public  int factorialR(int num){
+		if(num == 0){
+			return 1;
+		}
+		else
+			return num * factorialR(num-1);
+	}
 }

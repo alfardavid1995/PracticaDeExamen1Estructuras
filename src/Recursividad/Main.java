@@ -7,9 +7,9 @@ public class Main {
         Ejercicios e=new Ejercicios();
         
         System.out.println(e.calcCos(10, 7));
-        System.out.println(e.calcCosRecursivo(10, 7, 0, 0));
+        System.out.println(e.calcCosRecursivo(10, 7, 0));
         System.out.println(e.factorial(8));
-        System.out.println(e.factorialRecursivo(8, 1, 1));
+        System.out.println(e.factorialR(8));
     }
     
 }

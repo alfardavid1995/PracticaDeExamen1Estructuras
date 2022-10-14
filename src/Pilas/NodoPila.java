@@ -6,8 +6,6 @@ public class NodoPila {
     
     //constructor para inicializar
     
-
-
     public NodoPila() {
         this.archivoNodo = null;
         this.siguiente = null;
